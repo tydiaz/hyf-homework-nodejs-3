@@ -22,7 +22,7 @@ app.get('/users/:id', (req, res) => {
 })
 
 app.post('/users', (req, res) => {
-  res.json(req.body.users);
+  res.jso({ id: req.body.users });
 });
 
 app.listen(PORT, () => {
