@@ -8,6 +8,7 @@ const users = [
 ];
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -22,8 +23,8 @@ app.get('/users/:id', (req, res) => {
 })
 
 app.post('/users', (req, res) => {
-  
-  res.json(req.body);
+  const userId = req.body.id;
+  res.send({ 'id': userId });
 });
 
 app.listen(PORT, () => {
